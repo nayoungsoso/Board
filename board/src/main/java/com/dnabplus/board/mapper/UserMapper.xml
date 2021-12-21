@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.dnabplus.board.mapper.UserMapper">
+	<select id="selectUser" parameterType="String" resultType="String">
+		SELECT passwd FROM member WHERE id = #{id};
+	</select>
+	
+	<insert id="insertUser" parameterType="com.dnabplus.board.domain.UserDTO"> 
+		INSERT INTO member ( id, passwd, nickN, phone, email, joinDate, name
+		) VALUES (
+			#{id}, #{passwd}, #{nickN}, #{phone}, #{email}, NOW(), #{name});
+	</insert>
+	
+	<select id="selectData" parameterType="String" resultType="com.dnabplus.board.domain.UserDTO">
+		SELECT * FROM member WHERE id = #{id};
+	</select>
+	
+	<delete id="deleteUser" parameterType="String">
+		DELETE FROM member WHERE id = #{id};
+	</delete>
+	
+	<update id="updateUser" parameterType="com.dnabplus.board.domain.UserDTO">
+		UPDATE member SET name = #{name}, nickN = #{nickN} , phone = #{phone} , email = #{email} WHERE id = #{id};
+	</update>
+	
+	<select id="selectNick" parameterType="String" resultType="String">
+		SELECT nickN FROM member WHERE id = #{id};
+	</select>
+	
+	
+</mapper>
