@@ -11,7 +11,7 @@
 		
 		String userId = (String) session.getAttribute("userId");
 		if (userId != null) {
-			response.sendRedirect("/user/main");
+			response.sendRedirect("/board/member_main");
 		}
 		
 %>

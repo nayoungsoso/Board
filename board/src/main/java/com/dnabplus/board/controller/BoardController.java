@@ -1,6 +1,7 @@
 package com.dnabplus.board.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,6 +29,36 @@ public class BoardController {
 	@Autowired
 	UserService userService;
 
+	@RequestMapping(value = "/main", method = {RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView main(HttpServletRequest request, @ModelAttribute UserDTO user) {
+		ModelAndView myModel = new ModelAndView();
+		List<BoardDTO> list = boardService.boardList();
+		
+		int count = boardService.countBoard();
+		System.out.println(count);
+		System.out.println(list);
+		myModel.addObject("list", list);
+		myModel.addObject("count", count);
+		myModel.setViewName("main");
+		
+		
+		return myModel;
+	}
+
+	@RequestMapping(value="/member_main", method= {RequestMethod.POST, RequestMethod.GET})
+	public ModelAndView member_main(HttpServletRequest request, @ModelAttribute UserDTO user) {
+		ModelAndView myModel = new ModelAndView();
+		List<BoardDTO> list = boardService.boardList();
+		
+		int count = boardService.countBoard();
+		myModel.addObject("list", list);
+		myModel.addObject("count", count);
+		myModel.setViewName("member_main");
+			
+		
+		return myModel;
+	}
+	
 	@RequestMapping(value="/writing")
 	public ModelAndView writing(HttpServletRequest request, @ModelAttribute BoardDTO board) {
 		
@@ -75,8 +106,11 @@ public class BoardController {
 		myModel.addObject("result", board);
 		myModel.addObject("boardNum", boardNum);
 		
-		if(userId.equals(board.getId())) {
-			myModel.addObject("myDetail", "Y");
+		if (userId != null) {
+			if(userId.equals(board.getId())) {
+				myModel.addObject("myDetail", "Y");
+			}
+			
 		}
 		
 		myModel.setViewName("/detail");
@@ -104,10 +138,13 @@ public class BoardController {
 		ModelAndView mv = new ModelAndView();
 
 		int up = boardService.updateBoard(board);
-		
-		if(up > 0) {
-			System.out.println("업데이트 됨");
+		if (up > 0) {
+			System.out.println("update");
 		}
+		else {
+			System.out.println("안됨");
+		}
+		
 		mv.addObject("result", board);
 		mv.setViewName("/my_detail");
 		
@@ -124,12 +161,12 @@ public class BoardController {
 		
 		int board = boardService.deleteBoard(boardNum);
 		if(board!=0) {
-			System.out.println("삭제됨");
+			System.out.println("�궘�젣�맖");
 			session.removeAttribute("userId");
 			session.removeAttribute("userPasswd");
 		}
 		else
-			System.out.println("삭제안됨");
+			System.out.println("�궘�젣�븞�맖");
 		myModel.setViewName("/board_x");
 		
 		

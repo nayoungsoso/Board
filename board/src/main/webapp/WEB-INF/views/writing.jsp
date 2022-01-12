@@ -25,7 +25,12 @@ $(document).ready(function() {
 </script>
 <body>
 <%
+	response.setContentType("text.html; charset=UTF-8");
+	String userId = (String) session.getAttribute("userId");
 
+	if (userId == null) {
+		response.sendRedirect("/user/loginx");
+	}
 %>
 	<h1>게시글 작성하기</h1>
 	<form action="writing_sucess" method="post" id="writef">

@@ -3,12 +3,13 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>spring게시판</title>
+<title>main</title>
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
-	<div id="login">로그인</div>
-	<div id="register">회원가입</div>
+	<div id="member_mod">회원정보수정</div>
+	<div id="member_out">회원탈퇴</div>
+	<div id="logout">로그아웃</div>
 	<div>
 		<table width="500" border="1">
 			<tr>
@@ -37,12 +38,22 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	$("#login").bind("click", function() {
-		location.href = "/user/login";
+	$("#detail").bind("click", function() {
+		location.href = "/user/logout";
 	})
 	
-	$("#register").bind("click", function() {
-			location.href = "/user/sign_up";
+	$("#logout").bind("click", function() {
+		location.href = "/user/logout";
+	})
+	
+	$("#member_out").bind("click", function() {
+		if(confirm("계정탈퇴 하시겠습니까? 탈퇴된 계정은 복구하실 수 없습니다.")) {
+			location.href = "/user/member_out";
+		}
+	})
+	
+	$("#member_mod").bind("click", function() {
+		location.href="/user/member_mod";
 	})
 	
 	$("#writing").bind("click", function() {

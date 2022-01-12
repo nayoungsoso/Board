@@ -28,6 +28,8 @@ import com.dnabplus.board.service.UserService;
 import ch.qos.logback.classic.Logger;
 
 @Controller
+
+
 @RequestMapping("/user")
 public class UserController {
 	
@@ -38,13 +40,13 @@ public class UserController {
 	BoardService boardService;
 
 	
-	@RequestMapping(value = "/index")
-	public String index() {
-		
-		//UserData = userService.insertUser();
-		
-		return "index";
-	}
+//	@RequestMapping(value = "/index")
+//	public String index() {
+//		
+//		//UserData = userService.insertUser();
+//		
+//		return "index";
+//	}
 	
 	@RequestMapping(value="/loginx", method={RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView loginx(HttpServletRequest request) {
@@ -102,29 +104,14 @@ public class UserController {
 		
 		return "sign_up";
 	}
-	
-	@RequestMapping(value="/main", method= {RequestMethod.POST, RequestMethod.GET})
-	public ModelAndView main(HttpServletRequest request, @ModelAttribute UserDTO user) {
-		ModelAndView myModel = new ModelAndView();
-		List<BoardDTO> list = boardService.boardList();
-		
-		int count = boardService.countBoard();
-		myModel.addObject("list", list);
-		myModel.addObject("count", count);
-		myModel.setViewName("main");
-			
-		
-		return myModel;
-	}
-	
-	
+
 	@RequestMapping(value="/register", method=RequestMethod.POST)
 	public ModelAndView register(@ModelAttribute UserDTO user) {
 		ModelAndView myModel = new ModelAndView();
 		/*
-		 * 1. 파라메터를 받은상태
+		 * 1. �뙆�씪硫뷀꽣瑜� 諛쏆��긽�깭
 		 * 2. DBINSERT
-		 * 3. 회원가입 완료 화면
+		 * 3. �쉶�썝媛��엯 �셿猷� �솕硫�
 		 * */
 		System.out.println(user);
 		int UserData = userService.insertUser(user);
@@ -160,12 +147,12 @@ public class UserController {
 		
 		int user = userService.deleteUser(userId);
 		if(user!=0) {
-			System.out.println("삭제됨");
+			System.out.println("�궘�젣�맖");
 			session.removeAttribute("userId");
 			session.removeAttribute("userPasswd");
 		}
 		else
-			System.out.println("삭제안됨");
+			System.out.println("�궘�젣�븞�맖");
 		myModel.addObject("result", user);
 		myModel.setViewName("/member_out");
 		
@@ -193,7 +180,7 @@ public class UserController {
 		int up = userService.updateUser(user);
 		
 		if(up > 0) {
-			System.out.println("업데이트 됨");
+			System.out.println("�뾽�뜲�씠�듃 �맖");
 		}
 		mv.addObject("result", user);
 		mv.setViewName("/member_mod");

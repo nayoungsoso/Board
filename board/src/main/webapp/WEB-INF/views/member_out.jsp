@@ -9,6 +9,6 @@
 <script>
 	alert("계정이 탈퇴되었습니다.");
 	
-	document.location.href="login";
+	document.location.href="main";
 </script>
 </html>

@@ -9,9 +9,9 @@
 
 	$(document).ready(function() {
 		$("#ok").bind("click", function() {
-			if($("#content").val() == "" || $("#content").val() == null) {
+			if($("#contents").val() == "" || $("#contents").val() == null) {
 				alert("내용을 입력해주세요.");
-				$("#content").focus();
+				$("#contents").focus();
 				return false;
 			}
 			
@@ -26,7 +26,7 @@
 		<div>${ result.getTitle() }</div>
 		<div>${ result.getId() }</div>
 		<div>${ result.getWriter() }</div>
-		<div><input type="text" value=${ result.getContent() } name="content" id="content"></div>
+		<div><input type="text" value=${ result.getContent() } name="contents" id="contents"></div>
 		<input type="button" value="완료" id="ok">
 	</form>
 </body>

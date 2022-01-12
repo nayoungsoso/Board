@@ -9,6 +9,6 @@
 <script>
 	alert("게시물이 삭제되었습니다.");
 	
-	document.location.href="main";
+	document.location.href="/board/member_main";
 </script>
 </html>

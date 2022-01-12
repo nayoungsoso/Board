@@ -7,6 +7,6 @@
 <body>
 </body>
 <script>
-	document.location.href="/user/main";
+	document.location.href="/board/member_main";
 </script>
 </html>

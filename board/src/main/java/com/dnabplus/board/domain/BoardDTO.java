@@ -9,9 +9,8 @@ public class BoardDTO {
 	private String title;
 	private String id;
 	private String writer;
-	private String content;
-	private LocalDateTime registDate;
-	private LocalDateTime modifyDate;
+	private String contents;
+	private LocalDateTime createDate;
 	
 	public int getBoardNum() {
 		return boardNum;
@@ -38,22 +37,16 @@ public class BoardDTO {
 		this.writer = writer;
 	}
 	public String getContent() {
-		return content;
+		return contents;
 	}
 	public void setContent(String content) {
-		this.content = content;
+		this.contents = content;
 	}
-	public LocalDateTime getRegistDate() {
-		return registDate;
+	public LocalDateTime getCreateDate() {
+		return createDate;
 	}
-	public void setRegistDate(LocalDateTime registDate) {
-		this.registDate = registDate;
-	}
-	public LocalDateTime getModifyDate() {
-		return modifyDate;
-	}
-	public void setModifyDate(LocalDateTime modifyDate) {
-		this.modifyDate = modifyDate;
+	public void setCreateDate(LocalDateTime createDate) {
+		this.createDate = createDate;
 	}
 	public int getCount() {
 		return count;

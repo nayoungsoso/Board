@@ -8,11 +8,11 @@ public class UserDTO {
 	
 	private String passwd;
 	
-	private String nickN;
+	private String nickName;
 	
 	private String phone;
 	
-	private String email;
+	private String e_mail;
 	
 	private LocalDateTime joinDate;
 	
@@ -34,12 +34,12 @@ public class UserDTO {
 		this.passwd = passwd;
 	}
 
-	public String getNickN() {
-		return nickN;
+	public String getNickName() {
+		return nickName;
 	}
 
-	public void setNickN(String nickN) {
-		this.nickN = nickN;
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
 
 	public String getPhone() {
@@ -51,11 +51,11 @@ public class UserDTO {
 	}
 
 	public String getEmail() {
-		return email;
+		return e_mail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmail(String e_mail) {
+		this.e_mail = e_mail;
 	}
 
 	public LocalDateTime getJoinDate() {

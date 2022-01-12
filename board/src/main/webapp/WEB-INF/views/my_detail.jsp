@@ -15,7 +15,7 @@ String boardNum = request.getParameter("boardNum");
 		<div>${ result.getId() }</div>
 		<div>${ result.getWriter() }</div>
 		<div>${ result.getContent() }</div>
-		<div>${ result.getRegistDate() }</div>
+		<div>${ result.getCreateDate() }</div>
 		<input type="hidden"value=boardNum name="boardNum">
 		<input type="button"value="수정" id="board_mod">
 		<input type="button"value="삭제" id="board_x">

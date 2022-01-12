@@ -13,7 +13,7 @@
 		<div>${ result.getId() }</div>
 		<div>${ result.getWriter() }</div>
 		<div>${ result.getContent() }</div>
-		<div>${ result.getRegistDate() }</div>
+		<div>${ result.getCreateDate() }</div>
 		
 		<c:if test="${ myDetail eq 'Y' }">
 			<input type="hidden"value=boardNum name="boardNum">

@@ -22,12 +22,6 @@
 				return false;
 			}
 
-			if($("#phone").val() == "" || $("#phone").val() == null) {
-				alert("전화번호를 입력해주세요.");
-				$("#phone").focus();
-				return false;
-			}
-
 			if($("#email").val() == "" || $("#email").val() == null) {
 				alert("이메일을 입력해주세요.");
 				$("#email").focus();
@@ -53,9 +47,8 @@
 	<form action="doModify" method="post" id="modf">
 		<p>아이디 : ${userId}
 		<p>이름 : <input type="text" id="name" value=${ result.getName() } name="name">
-		<p>닉네임 : <input type="text" id="nickN" value=${ result.getNickN() } name="nickN">
-		<p>전화번호 : <input type="text" id="phone" value=${ result.getPhone() } name="phone">
-		<p>이메일 : <input type="text" id="email" value=${ result.getEmail() } name="email">
+		<p>닉네임 : <input type="text" id="nickN" value=${ result.getNickName() } name="nickName">
+		<p>이메일 : <input type="text" id="email" value=${ result.getEmail() } name="e_mail">
 		<p><input type="button" value="수정" id="sign">
 	</form>
 </body>

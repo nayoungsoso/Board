@@ -9,6 +9,6 @@
 <script>
 	alert("게시물 등록이 완료되었습니다.");
 	
-	document.location.href="/user/main";
+	document.location.href="/board/member_main";
 </script>
 </html>

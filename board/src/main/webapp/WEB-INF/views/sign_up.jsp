@@ -39,15 +39,9 @@
 				return false;
 			}
 
-			if($("#phone").val() == "" || $("#phone").val() == null) {
-				alert("전화번호를 입력해주세요.");
-				$("#phone").focus();
-				return false;
-			}
-
-			if($("#email").val() == "" || $("#email").val() == null) {
+			if($("#e_mail").val() == "" || $("#e_mail").val() == null) {
 				alert("이메일을 입력해주세요.");
-				$("#email").focus();
+				$("#e_mail").focus();
 				return false;
 			}
 			$("#signf").submit();
@@ -61,9 +55,8 @@
 		<p>비밀번호 : <input type="password" id="passwd" name="passwd">
 		<p>비밀번호 확인 : <input type="password" id="passwd_ok">
 		<p>이름 : <input type="text" id="name" name="name">
-		<p>닉네임 : <input type="text" id="nick" name="nickN">
-		<p>전화번호 : <input type="text" id="phone" name="phone">
-		<p>이메일 : <input type="text" id="email" name="email">
+		<p>닉네임 : <input type="text" id="nick" name="nickName">
+		<p>이메일 : <input type="text" id="e_mail" name="e_mail">
 		<p><input type="button" value="회원가입" id="sign">
 	</form>
 	

@@ -9,6 +9,6 @@
 <script>
 	alert("로그아웃 되셨습니다.");
 	
-	document.location.href="login";
+	document.location.href="/board/main";
 </script>
 </html>

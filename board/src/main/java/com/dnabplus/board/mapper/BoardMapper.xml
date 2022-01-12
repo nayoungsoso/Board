@@ -14,17 +14,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
     
     <select id="selectBoard" parameterType="String" resultType="com.dnabplus.board.domain.BoardDTO">
-    	SELECT title, id, writer, content, registDate FROM board WHERE boardNum=#{boardNum};
+    	SELECT title, id, writer, contents, createDate FROM board WHERE boardNum=#{boardNum};
     </select>
 	
 	<insert id="insertBoard" parameterType="com.dnabplus.board.domain.BoardDTO"> 
-		INSERT INTO board ( boardNum, id, writer, title, content, registDate
+		INSERT INTO board ( id, title, contents, writer
 		) VALUES (
-			(SELECT MAX(*) FROM board) + 1, #{id}, #{writer}, #{title}, #{content}, NOW());
+			#{id}, #{title}, #{contents}, #{writer});
 	</insert>
 	
 	<update id="updateBoard" parameterType="com.dnabplus.board.domain.BoardDTO">
-		UPDATE board SET content = #{content}, modifyDate = NOW() WHERE boardNum = #{boardNum};
+		UPDATE board SET contents = #{contents} WHERE boardNum = #{boardNum};
 	</update>
 	
 	<delete id="deleteBoard" parameterType="String">
